@@ -538,6 +538,19 @@ a { color: inherit; text-decoration: none; }
     radial-gradient(ellipse 40% 35% at 8% 60%, rgba(20,63,44,.27), transparent 70%),
     linear-gradient(180deg, #04150e 0%, #061a11 50%, #03110b 100%);
 }
+.section-portrait-watermark {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: min(72vw, 620px);
+  height: auto;
+  transform: translate(-50%, -50%);
+  opacity: .055;
+  filter: saturate(.55);
+  pointer-events: none;
+  user-select: none;
+}
 .invitation-section::before {
   content: "";
   position: absolute;
@@ -1208,6 +1221,7 @@ a { color: inherit; text-decoration: none; }
 </section>
 <section id="invitation" class="invitation-section relative overflow-hidden py-20 md:py-28">
   <div class="invitation-aura" aria-hidden="true"></div>
+  <img class="section-portrait-watermark" src="assets/teto-pilar-medallion.png" alt="" aria-hidden="true" width="1254" height="1254" decoding="async">
   <div class="relative mx-auto max-w-[1080px] px-4 sm:px-6">
     <div class="mb-10 text-center md:mb-14" data-reveal>
       <p class="eyebrow text-gold/65">A cherished invitation</p>
@@ -1407,6 +1421,7 @@ a { color: inherit; text-decoration: none; }
 </section>
 
 <section id="celebration" class="section-dark relative overflow-hidden py-24 md:py-32">
+  <img class="section-portrait-watermark" src="assets/teto-pilar-medallion.png" alt="" aria-hidden="true" width="1254" height="1254" decoding="async">
   <div class="relative mx-auto max-w-6xl px-6">
     <div class="text-center" data-reveal>
       <p class="eyebrow text-gold/65">Save the date</p>
