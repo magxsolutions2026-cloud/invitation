@@ -863,7 +863,6 @@ a { color: inherit; text-decoration: none; }
 .is-opening .css-flap { transform: rotateX(178deg); }
 .is-opening .css-envelope-seal { opacity: 0; transform: translate(-50%, -50%) scale(1.55) rotate(14deg); pointer-events: none; }
 .css-envelope-body::before { z-index: 3; }
-.swan-crest { width: clamp(170px, 29vw, 292px); height: auto; margin: 0 auto; }
 .portrait-inner svg { width: 100%; height: 100%; }
 .card-rule { display: flex; align-items: center; justify-content: center; gap: 12px; }
 .card-rule .line { height: 1px; width: clamp(46px, 8vw, 82px); background: linear-gradient(90deg, transparent, rgba(143,108,48,.62)); }
@@ -880,7 +879,6 @@ a { color: inherit; text-decoration: none; }
   .gold-wax-seal { left: 12px; bottom: 24px; }
 }
 @media (max-width: 480px) {
-  .swan-crest { width: 160px; }
   .gold-wax-seal { width: 70px; }
 }
 .skip-link {
@@ -1309,43 +1307,6 @@ a { color: inherit; text-decoration: none; }
 
         <div class="card-content px-9 pb-36 pt-12 sm:px-14 md:px-24 md:pb-40 md:pt-14">
           <header class="text-center">
-            <svg class="swan-crest" viewBox="0 0 640 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs>
-                <linearGradient id="swanGold" x1="120" y1="60" x2="520" y2="260" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#8f6c30"/><stop offset=".28" stop-color="#e4ca87"/><stop offset=".52" stop-color="#f8edc6"/><stop offset=".76" stop-color="#bd9448"/><stop offset="1" stop-color="#8f6c30"/>
-                </linearGradient>
-                <linearGradient id="swanFill" x1="120" y1="80" x2="520" y2="240" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#c6a15b" stop-opacity=".38"/><stop offset=".5" stop-color="#f4e3b4" stop-opacity=".72"/><stop offset="1" stop-color="#a9833f" stop-opacity=".3"/>
-                </linearGradient>
-              </defs>
-              <g stroke="url(#swanGold)" stroke-linecap="round">
-                <path d="M150 258C198 249 240 249 288 255C338 261 392 262 490 251" stroke-opacity=".5" stroke-width="1.2"/>
-                <path d="M178 272C232 265 278 266 320 271C367 277 420 274 468 267" stroke-opacity=".32" stroke-width="1"/>
-                <path d="M214 286C258 281 298 282 330 285C368 289 406 287 442 281" stroke-opacity=".2" stroke-width=".9"/>
-              </g>
-              <g>
-                <ellipse cx="188" cy="194" rx="64" ry="27" transform="rotate(-7 188 194)" fill="url(#swanFill)" stroke="url(#swanGold)" stroke-width="1.5"/>
-                <path d="M126 187C110 177 99 182 92 194C109 194 120 198 128 205" fill="url(#swanFill)" stroke="url(#swanGold)" stroke-width="1.3"/>
-                <path d="M158 186C176 165 208 164 228 179C212 196 182 198 158 186Z" fill="none" stroke="url(#swanGold)" stroke-width="1.2" stroke-opacity=".85"/>
-                <path d="M236 181C247 155 243 128 259 108C269 96 282 87 296 84L302 98C288 102 278 111 272 125C262 147 268 166 257 185Z" fill="url(#swanFill)" stroke="url(#swanGold)" stroke-width="1.5"/>
-                <ellipse cx="301" cy="89" rx="10" ry="8.5" transform="rotate(-12 301 89)" fill="url(#swanFill)" stroke="url(#swanGold)" stroke-width="1.3"/>
-                <path d="M309 86L330 82L313 94Z" fill="url(#swanGold)"/>
-                <circle cx="305" cy="86" r="1.4" fill="#5f481e"/>
-                <path d="M117 190C126 198 136 203 148 205" stroke="url(#swanGold)" stroke-width="1" stroke-opacity=".5"/>
-              </g>
-              <g transform="translate(640 0) scale(-1 1)">
-                <ellipse cx="188" cy="194" rx="64" ry="27" transform="rotate(-7 188 194)" fill="url(#swanFill)" stroke="url(#swanGold)" stroke-width="1.5"/>
-                <path d="M126 187C110 177 99 182 92 194C109 194 120 198 128 205" fill="url(#swanFill)" stroke="url(#swanGold)" stroke-width="1.3"/>
-                <path d="M158 186C176 165 208 164 228 179C212 196 182 198 158 186Z" fill="none" stroke="url(#swanGold)" stroke-width="1.2" stroke-opacity=".85"/>
-                <path d="M236 181C247 155 243 128 259 108C269 96 282 87 296 84L302 98C288 102 278 111 272 125C262 147 268 166 257 185Z" fill="url(#swanFill)" stroke="url(#swanGold)" stroke-width="1.5"/>
-                <ellipse cx="301" cy="89" rx="10" ry="8.5" transform="rotate(-12 301 89)" fill="url(#swanFill)" stroke="url(#swanGold)" stroke-width="1.3"/>
-                <path d="M309 86L330 82L313 94Z" fill="url(#swanGold)"/>
-                <circle cx="305" cy="86" r="1.4" fill="#5f481e"/>
-                <path d="M117 190C126 198 136 203 148 205" stroke="url(#swanGold)" stroke-width="1" stroke-opacity=".5"/>
-              </g>
-              <path d="M320 134C303 116 281 130 292 150C300 163 320 178 320 178C320 178 340 163 348 150C359 130 337 116 320 134Z" stroke="url(#swanGold)" stroke-opacity=".28" stroke-width="1"/>
-              <path d="M320 76l5 8-5 8-5-8 5-8Z" fill="url(#swanGold)" fill-opacity=".75"/>
-            </svg>
             <p class="eyebrow card-deco mt-1 text-[.58rem] text-[#8a6a32]/85">In loving memory · A legacy continues</p>
             <img
               class="founder-medallion mx-auto mt-5 w-[min(78vw,280px)] drop-shadow-[0_14px_20px_rgba(66,45,14,.3)]"
@@ -1355,7 +1316,7 @@ a { color: inherit; text-decoration: none; }
               height="1254"
               decoding="async"
             >
-            <p class="card-script mt-5 text-[clamp(2rem,4.6vw,3.1rem)] leading-none">Teto &amp; Pilar Guillermo</p>
+            <p class="card-script mt-5 text-[clamp(2rem,4.6vw,3.1rem)] leading-none">Teto and Pilar Guillermo</p>
             <p class="card-deco mt-2 text-[8px] tracking-[.34em] text-[#8a6a32]/80 sm:text-[9px]">PATRIARCH &amp; MATRIARCH</p>
           </header>
 
@@ -1364,7 +1325,7 @@ a { color: inherit; text-decoration: none; }
             <p class="card-deco mt-7 text-[.6rem] tracking-[.38em] text-[#8a6a32]/80">THE 2026</p>
             <h1 class="mt-3">
               <span class="sr-only">2026 Teto and Pilar Guillermo Clan Family Reunion</span>
-              <span class="card-serif block text-[clamp(1.55rem,3.4vw,2.5rem)] font-medium uppercase leading-[1.2] tracking-[.12em] text-[#4a3c29]">Teto &amp; Pilar<br class="sm:hidden"> Guillermo</span>
+              <span class="card-serif block text-[clamp(1.55rem,3.4vw,2.5rem)] font-medium uppercase leading-[1.2] tracking-[.12em] text-[#4a3c29]">Teto and Pilar<br class="sm:hidden"> Guillermo</span>
               <span class="card-script mt-2 block text-[clamp(2.4rem,5.4vw,3.9rem)] leading-none">Clan Family Reunion</span>
             </h1>
             <p class="card-serif mx-auto mt-6 max-w-[30rem] text-[clamp(1rem,2.2vw,1.24rem)] italic leading-relaxed text-[#5b4a33]">
@@ -1542,7 +1503,7 @@ a { color: inherit; text-decoration: none; }
           <div class="detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.1"/><path d="M12 8v4l2 2" stroke="currentColor" stroke-width="1.1"/></svg></div>
           <div class="flex-1">
             <p class="eyebrow text-gold/55">Memory Prompt</p>
-            <p class="mt-2 font-serif text-lg text-ivory">Share a memory of Teto &amp; Pilar</p>
+            <p class="mt-2 font-serif text-lg text-ivory">Share a memory of Teto and Pilar</p>
             <p class="mt-1 text-sm leading-relaxed text-ivory/55">Bring or share a story, photo, or message to add to our living family archive.</p>
           </div>
         </div>
@@ -2239,42 +2200,6 @@ function makeFlapTitleCanvas() {
   return c;
 }
 
-function drawCanvasSwan(ctx, cx, cy, mirror) {
-  ctx.save();
-  ctx.translate(cx, cy);
-  ctx.scale(mirror ? -1 : 1, 1);
-  ctx.strokeStyle = '#b28a43';
-  ctx.lineWidth = 2.6;
-  ctx.lineCap = 'round';
-  ctx.lineJoin = 'round';
-  ctx.beginPath();
-  ctx.ellipse(0, 30, 54, 21, -.08, 0, Math.PI * 2);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(-50, 22);
-  ctx.quadraticCurveTo(-68, 10, -78, 24);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(-22, 26);
-  ctx.bezierCurveTo(2, 6, 36, 10, 52, 24);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(38, 22);
-  ctx.bezierCurveTo(48, -2, 44, -30, 60, -46);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.ellipse(64, -50, 8, 7, -.2, 0, Math.PI * 2);
-  ctx.stroke();
-  ctx.fillStyle = '#b28a43';
-  ctx.beginPath();
-  ctx.moveTo(70, -52);
-  ctx.lineTo(87, -57);
-  ctx.lineTo(73, -44);
-  ctx.closePath();
-  ctx.fill();
-  ctx.restore();
-}
-
 function makeCardCanvas() {
   const width = 920;
   const height = 1216;
@@ -2315,8 +2240,6 @@ function makeCardCanvas() {
     ctx.lineTo(x + sx * 48, y + sy * 8);
     ctx.stroke();
   });
-  drawCanvasSwan(ctx, width * .5 - 50, 218, false);
-  drawCanvasSwan(ctx, width * .5 + 50, 218, true);
   ctx.strokeStyle = 'rgba(178,138,67,.4)';
   ctx.lineWidth = 1.2;
   [0, 1, 2].forEach((index) => {
@@ -2344,12 +2267,6 @@ function makeCardCanvas() {
   ctx.beginPath();
   ctx.arc(width * .5, 430, 93, 0, Math.PI * 2);
   ctx.stroke();
-  ctx.fillStyle = '#765116';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.font = 'italic 400 92px "Cormorant Garamond", serif';
-  ctx.fillText('T & P', width * .5, 438);
-  ctx.textBaseline = 'alphabetic';
   ctx.fillStyle = '#58451f';
   ctx.font = '600 23px Cinzel, serif';
   ctx.fillText('THE GUILLERMO CLAN', width * .5, 610);
@@ -2363,7 +2280,7 @@ function makeCardCanvas() {
   ctx.fillText('2026', width * .5, 812);
   ctx.fillStyle = '#59451f';
   ctx.font = 'italic 500 30px "Cormorant Garamond", serif';
-  ctx.fillText('Teto  &  Pilar Guillermo', width * .5, 864);
+  ctx.fillText('Teto and Pilar Guillermo', width * .5, 864);
   ctx.strokeStyle = 'rgba(143,108,48,.45)';
   ctx.lineWidth = 1;
   ctx.beginPath();
@@ -2391,6 +2308,22 @@ function makeCardCanvas() {
   ctx.font = 'italic 500 26px "Cormorant Garamond", serif';
   ctx.fillText('Honoring our roots and legacy', width * .5, 1092);
   return c;
+}
+
+function drawCanvasPortrait(ctx, image) {
+  const centerX = 460;
+  const centerY = 430;
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, 90, 0, Math.PI * 2);
+  ctx.clip();
+  ctx.drawImage(image, centerX - 90, centerY - 90, 180, 180);
+  ctx.restore();
+  ctx.strokeStyle = 'rgba(143,108,48,.62)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, 93, 0, Math.PI * 2);
+  ctx.stroke();
 }
 
 function makeRoseCanvas(size = 640) {
@@ -2542,7 +2475,14 @@ async function init() {
   const paperTex = canvasTexture(makePaperCanvas('#072116', '96,164,128', 768));
   paperTex.wrapS = paperTex.wrapT = THREE.RepeatWrapping;
   const frontTex = canvasTexture(makeEnvelopeFrontCanvas(portraitMode));
-  const cardTex = canvasTexture(makeCardCanvas());
+  const cardCanvas = makeCardCanvas();
+  const cardTex = canvasTexture(cardCanvas);
+  const cardPortraitImage = new Image();
+  cardPortraitImage.onload = () => {
+    drawCanvasPortrait(cardCanvas.getContext('2d'), cardPortraitImage);
+    cardTex.needsUpdate = true;
+  };
+  cardPortraitImage.src = 'assets/teto-pilar-medallion.png';
   const roseTex = canvasTexture(makeRoseCanvas(768));
   const sparkTex = canvasTexture(makeSparkCanvas());
   const shadowTex = canvasTexture(makeShadowCanvas());
