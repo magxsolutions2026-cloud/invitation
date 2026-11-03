@@ -824,6 +824,51 @@ a { color: inherit; text-decoration: none; }
   transition: border-color .35s, transform .35s, background .35s;
 }
 .gathering-card:hover { border-color: rgba(198,161,91,.4); transform: translateY(-4px); background: linear-gradient(145deg, rgba(15,52,37,.68), rgba(4,20,14,.45)); }
+.program-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 82px;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(198,161,91,.17);
+  background: linear-gradient(125deg, rgba(16,51,37,.74), rgba(5,24,17,.74));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 12px 30px rgba(0,0,0,.12);
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+.program-card:hover { transform: translateY(-2px); border-color: rgba(234,213,165,.42); background: linear-gradient(125deg, rgba(22,63,46,.84), rgba(5,24,17,.8)); }
+.program-time {
+  flex: 0 0 96px;
+  color: #ead5a5;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: .68rem;
+  letter-spacing: .06em;
+  font-variant-numeric: tabular-nums;
+}
+.program-activity {
+  color: rgba(248,242,229,.88);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.18rem;
+  line-height: 1.15;
+}
+.program-marker {
+  display: grid;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid rgba(198,161,91,.34);
+  border-radius: 50%;
+  color: #ead5a5;
+  background: rgba(198,161,91,.08);
+}
+.program-marker svg { width: 15px; height: 15px; }
+@media (max-width: 480px) {
+  .program-card { gap: .7rem; padding: .9rem .75rem; }
+  .program-time { flex-basis: 78px; font-size: .61rem; }
+  .program-activity { font-size: 1.08rem; }
+  .program-marker { flex-basis: 26px; width: 26px; height: 26px; }
+}
 .footer-monogram {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-style: italic;
@@ -1392,6 +1437,36 @@ a { color: inherit; text-decoration: none; }
     </div>
     <p id="countdown-note" class="mt-5 text-center font-serif text-sm italic text-gold/50"></p>
 
+    <section class="mx-auto mt-16 max-w-5xl" aria-labelledby="program-heading" data-reveal>
+      <div class="text-center">
+        <svg class="mx-auto mb-4 h-auto w-[min(72vw,230px)]" viewBox="0 0 240 112" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M42 82C60 63 77 63 94 82C111 101 128 101 145 82C162 63 179 63 198 82" stroke="#c6a15b" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24 92C48 78 68 78 91 92C114 106 137 106 160 92C181 79 198 79 216 90" stroke="#ead5a5" stroke-opacity=".62" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M82 70a38 38 0 0 1 76 0" stroke="#ead5a5" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="120" cy="67" r="19" fill="#c6a15b" fill-opacity=".18" stroke="#ead5a5" stroke-width="1.6"/>
+          <path d="M120 57v11l7 5" stroke="#ead5a5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M48 38l4 7 8 1-6 5 1 8-7-4-7 4 2-8-6-5 8-1 3-7ZM189 34l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1 3-6Z" fill="#c6a15b" fill-opacity=".72"/>
+          <path d="M74 45l2 3 4 1-3 2 1 4-4-2-3 2 1-4-3-2 4-1 1-3ZM167 48l2 4 4 .5-3 3 .7 4-3.7-2-3.7 2 .7-4-3-3 4-.5 2-4Z" fill="#ead5a5" fill-opacity=".8"/>
+        </svg>
+        <p class="eyebrow text-gold/65">Together from morning to evening</p>
+        <h3 id="program-heading" class="section-title mt-2 text-[clamp(2.4rem,5vw,4rem)]">The Day’s Program</h3>
+        <div class="ornament-row mt-4"><span class="line"></span><span class="diamond"></span><span class="line"></span></div>
+      </div>
+      <ol class="mt-9 grid gap-3 sm:grid-cols-2 lg:gap-4">
+        <li class="program-card"><span class="program-marker" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="currentColor"/><path d="M10 6v4l3 2" stroke="currentColor" stroke-linecap="round"/></svg></span><time class="program-time" datetime="07:00">7:00 AM</time><span class="program-activity">Arrival</span></li>
+        <li class="program-card"><span class="program-marker" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M10 2v5m0 6v5M2 10h5m6 0h5M4.3 4.3l3.5 3.5m4.4 4.4 3.5 3.5m0-11.4-3.5 3.5m-4.4 4.4-3.5 3.5" stroke="currentColor" stroke-linecap="round"/><circle cx="10" cy="10" r="2.5" stroke="currentColor"/></svg></span><time class="program-time" datetime="07:30">7:30 AM</time><span class="program-activity">Opening Prayer &amp; Welcome</span></li>
+        <li class="program-card"><span class="program-marker" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><circle cx="7" cy="7" r="2.5" stroke="currentColor"/><circle cx="14" cy="8" r="2" stroke="currentColor"/><path d="M2.5 16c.4-2.5 2-4 4.5-4s4.1 1.5 4.5 4m.5-3.5c2.8 0 4.4 1.2 5 3.5" stroke="currentColor" stroke-linecap="round"/></svg></span><time class="program-time" datetime="08:00">8:00 AM</time><span class="program-activity">Icebreakers</span></li>
+        <li class="program-card"><span class="program-marker" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M10 2.5 12 7l4.8 1-3.5 3.3.8 5-4.1-2.3L5.9 16.3l.8-5L3.2 8 8 7l2-4.5Z" stroke="currentColor" stroke-linejoin="round"/></svg></span><time class="program-time" datetime="09:30">9:30 AM</time><span class="program-activity">Morning Games</span></li>
+        <li class="program-card"><span class="program-marker" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="14" height="11" rx="2" stroke="currentColor"/><circle cx="10" cy="10.5" r="3" stroke="currentColor"/><path d="m6 5 1-2h6l1 2" stroke="currentColor" stroke-linejoin="round"/></svg></span><time class="program-time" datetime="11:30">11:30 AM</time><span class="program-activity">Family Photos</span></li>
+        <li class="program-card"><span class="program-marker" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M3 8h14v8H3zM5 8c0-2 1-3 2.5-3S10 6 10 8m0 0c0-2 1-3 2.5-3S15 6 15 8M6 13h8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span><time class="program-time" datetime="12:00">12:00 PM</time><span class="program-activity">Lunch &amp; Open Mic</span></li>
+        <li class="program-card"><span class="program-marker" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M3 15.5h14M5 15.5V9l5-4 5 4v6.5M8 15.5v-4h4v4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span><time class="program-time" datetime="13:30">1:30 PM</time><span class="program-activity">Rest &amp; Free Time</span></li>
+        <li class="program-card"><span class="program-marker" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="m10 2 2.1 4.6 5 .7-3.6 3.5.9 5-4.4-2.4-4.4 2.4.9-5L3 7.3l5-.7L10 2Z" stroke="currentColor" stroke-linejoin="round"/><circle cx="10" cy="10" r="2" stroke="currentColor"/></svg></span><time class="program-time" datetime="14:30">2:30 PM</time><span class="program-activity">Afternoon Challenges</span></li>
+        <li class="program-card"><span class="program-marker" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 9h12v7H4zM6 9c0-2 1-3.5 4-5 3 1.5 4 3 4 5M7 12h6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></span><time class="program-time" datetime="15:45">3:45 PM</time><span class="program-activity">Merienda</span></li>
+        <li class="program-card"><span class="program-marker" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M3 16h14M5 16V7l5-3 5 3v9M8 10h4m-4 3h4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 5 4 3m14 2-2-2" stroke="currentColor" stroke-linecap="round"/></svg></span><time class="program-time" datetime="16:30">4:30 PM</time><span class="program-activity">Passing of the Host</span></li>
+        <li class="program-card"><span class="program-marker" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M10 2.5c2.5 3 4 5.1 4 7.4a4 4 0 1 1-8 0c0-2.3 1.5-4.4 4-7.4Z" stroke="currentColor"/><path d="M8.3 10.5c.2 1 1 1.7 2 1.8" stroke="currentColor" stroke-linecap="round"/></svg></span><time class="program-time" datetime="16:45">4:45 PM</time><span class="program-activity">Closing Prayer &amp; Farewell</span></li>
+      </ol>
+    </section>
+
     <div class="mt-14 grid gap-5 md:mt-20 md:grid-cols-3" data-reveal>
       <article class="gathering-card p-7 md:p-8">
         <div class="grid h-11 w-11 place-items-center rounded-full border border-gold/25 text-gold-light">
@@ -1434,8 +1509,8 @@ a { color: inherit; text-decoration: none; }
           <div class="detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.1"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.1"/></svg></div>
           <div>
             <p class="eyebrow text-gold/55">Arrival</p>
-            <p class="mt-2 font-serif text-lg text-ivory">6:30 AM</p>
-            <p class="mt-1 text-xs text-ivory/45">The program begins at 7:00 AM.</p>
+            <p class="mt-2 font-serif text-lg text-ivory">7:00 AM</p>
+            <p class="mt-1 text-xs text-ivory/45">The program begins at 7:30 AM.</p>
           </div>
         </div>
       </article>
@@ -1503,7 +1578,7 @@ a { color: inherit; text-decoration: none; }
       <div class="mx-auto mt-10 max-w-3xl">
         <details class="faq-item" open>
           <summary>What time should we arrive?</summary>
-          <p>Please arrive by 6:30 AM for registration. The program begins at 7:00 AM.</p>
+          <p>Please arrive by 7:00 AM for registration. The program begins at 7:30 AM.</p>
         </details>
         <details class="faq-item">
           <summary>Is parking available?</summary>
