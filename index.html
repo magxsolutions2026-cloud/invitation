@@ -817,56 +817,6 @@ a { color: inherit; text-decoration: none; }
   transition: filter .6s ease;
 }
 .venue-map:hover { filter: sepia(.08) saturate(.78) brightness(.84) contrast(1.02) hue-rotate(96deg); }
-.field {
-  width: 100%;
-  border: 0;
-  border-bottom: 1px solid rgba(198,161,91,.28);
-  background: transparent;
-  color: #f8f2e5;
-  padding: .8rem 0 .65rem;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.1rem;
-  letter-spacing: .015em;
-  outline: 0;
-  border-radius: 0;
-  transition: border-color .25s, background .25s;
-}
-.field:focus { border-color: #d8ba77; background: rgba(198,161,91,.025); }
-.field::placeholder { color: rgba(248,242,229,.28); font-family: "Jost", sans-serif; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; }
-select.field { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23c6a15b' stroke-width='1.2'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 4px center; }
-select.field option { background: #082117; color: #f8f2e5; }
-textarea.field { resize: vertical; min-height: 72px; }
-.field-label { display: block; margin-bottom: .2rem; color: rgba(198,161,91,.82); font-family: "Jost", sans-serif; font-size: .58rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; }
-.rsvp-choice input:checked + span {
-  background: linear-gradient(105deg, #a98440, #e5ca87 46%, #bd9448);
-  border-color: transparent;
-  color: #071b12;
-  box-shadow: 0 8px 18px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.4);
-}
-.rsvp-choice span { transition: all .28s ease; }
-.form-panel {
-  border: 1px solid rgba(198,161,91,.19);
-  background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(34,88,64,.24), transparent 70%),
-    linear-gradient(145deg, rgba(11,42,30,.74), rgba(3,17,11,.85));
-  box-shadow: 0 36px 80px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.035);
-  backdrop-filter: blur(8px);
-}
-.form-panel::before {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  border: 1px solid rgba(198,161,91,.07);
-  pointer-events: none;
-}
-.confetti-canvas {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 150;
-}
 .footer-monogram {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-style: italic;
@@ -912,7 +862,6 @@ textarea.field { resize: vertical; min-height: 72px; }
 .map-frame { position: relative; border: 1px solid rgba(198,161,91,.28); background: #04150e; box-shadow: 0 34px 70px rgba(0,0,0,.35), inset 0 0 0 8px rgba(3,17,11,.55); }
 .map-frame::before { content: ""; position: absolute; inset: 7px; border: 1px solid rgba(198,161,91,.12); pointer-events: none; z-index: 2; }
 .map-frame iframe { display: block; width: 100%; height: clamp(300px, 42vw, 470px); border: 0; }
-.rsvp-success { background: radial-gradient(ellipse at 50% 0%, rgba(44,104,77,.28), transparent 70%); }
 [data-reveal] { will-change: transform, opacity; }
 @media (max-width: 767px) {
   .side-vine { top: 34px; bottom: 34px; }
@@ -1046,79 +995,6 @@ textarea.field { resize: vertical; min-height: 72px; }
   line-height: 1.65;
   color: rgba(248,242,229,.55);
 }
-.mobile-rsvp-bar {
-  position: fixed;
-  left: .9rem;
-  right: .9rem;
-  bottom: calc(.9rem + env(safe-area-inset-bottom));
-  z-index: 95;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 58px;
-  padding: .55rem .6rem .55rem 1rem;
-  border: 1px solid rgba(198,161,91,.34);
-  background: rgba(3,17,11,.93);
-  box-shadow: 0 18px 55px rgba(0,0,0,.55);
-  backdrop-filter: blur(14px);
-  transform: translateY(calc(130% + env(safe-area-inset-bottom)));
-  transition: transform .45s cubic-bezier(.2,.8,.2,1);
-}
-.mobile-rsvp-bar.is-visible { transform: translateY(0); }
-.mobile-rsvp-bar strong {
-  display: block;
-  font-family: "Cinzel", serif;
-  font-size: .59rem;
-  font-weight: 500;
-  letter-spacing: .2em;
-  color: #ead5a5;
-  text-transform: uppercase;
-}
-.mobile-rsvp-bar small {
-  display: block;
-  margin-top: .18rem;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: .82rem;
-  font-style: italic;
-  color: rgba(248,242,229,.48);
-}
-@media (min-width: 768px) { .mobile-rsvp-bar { display: none; } }
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 240;
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-  background: rgba(2,12,8,.78);
-  backdrop-filter: blur(9px);
-}
-.modal-overlay[hidden] { display: none; }
-.modal-panel {
-  position: relative;
-  width: min(100%, 620px);
-  max-height: min(86svh, 760px);
-  overflow-y: auto;
-  border: 1px solid rgba(198,161,91,.42);
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(42,100,73,.25), transparent 65%),
-    #04170f;
-  box-shadow: 0 35px 90px rgba(0,0,0,.7);
-  padding: 1.5rem;
-}
-.modal-close {
-  position: absolute;
-  top: .7rem;
-  right: .7rem;
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(198,161,91,.28);
-  color: #ead5a5;
-  background: rgba(3,17,11,.6);
-}
 .concierge-log {
   max-height: 220px;
   overflow-y: auto;
@@ -1167,54 +1043,12 @@ textarea.field { resize: vertical; min-height: 72px; }
   transition: transform .4s ease, opacity .4s ease;
 }
 .toast.is-visible { transform: translate(-50%, 0); opacity: 1; }
-.rsvp-seal-mark {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 96px;
-  height: 96px;
-  margin: 0 auto;
-  border-radius: 48% 52% 47% 53% / 53% 46% 54% 47%;
-  background: radial-gradient(circle at 34% 26%, #376e54, #0c3525 38%, #052016 72%, #174833);
-  box-shadow: 0 14px 28px rgba(0,0,0,.45), inset 0 2px 3px rgba(224,247,229,.24), inset 0 -5px 9px rgba(0,0,0,.5);
-  color: #b9d8c2;
-}
-.rsvp-seal-mark svg { width: 56%; height: 56%; opacity: .86; }
-.rsvp-seal-mark::after {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  border: 1px dashed rgba(178,228,199,.3);
-  border-radius: 50%;
-}
-.constellation {
-  display: block;
-  width: min(100%, 330px);
-  margin: 1.4rem auto .2rem;
-  overflow: visible;
-}
-.constellation line {
-  stroke: rgba(198,161,91,.24);
-  stroke-width: 1;
-}
-.constellation circle {
-  fill: #c6a15b;
-  opacity: .28;
-}
-.constellation circle.lit {
-  opacity: 1;
-  filter: drop-shadow(0 0 5px rgba(234,213,165,.85));
-  animation: nodeGlow 2.6s ease-in-out infinite alternate;
-}
-@keyframes nodeGlow { from { opacity: .6; } to { opacity: 1; } }
 @media (max-width: 767px) {
-  .modal-panel { padding: 1.15rem; }
   .detail-card { padding: 1.35rem; }
   .hold-hint { font-size: .48rem; letter-spacing: .22em; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .mobile-rsvp-bar, .toast { transition: none !important; }
-  .constellation circle.lit { animation: none !important; }
+  .toast { transition: none !important; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1239,7 +1073,6 @@ textarea.field { resize: vertical; min-height: 72px; }
   </div>
 </div>
 <div class="scroll-progress" id="scroll-progress"></div>
-<canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
 
 <header class="site-nav fixed inset-x-0 top-0 z-[100] px-6 py-5 lg:px-10" id="site-nav" inert>
   <div class="mx-auto flex max-w-[1440px] items-center justify-between">
@@ -1255,10 +1088,8 @@ textarea.field { resize: vertical; min-height: 72px; }
       <a href="#celebration" class="nav-link eyebrow text-ivory/70 hover:text-gold-light">The Celebration</a>
       <a href="#details" class="nav-link eyebrow text-ivory/70 hover:text-gold-light">Details</a>
       <a href="#venue" class="nav-link eyebrow text-ivory/70 hover:text-gold-light">The Venue</a>
-      <a href="#rsvp" class="btn-gold !min-h-[40px] !px-6 !text-[.58rem]">RSVP</a>
     </nav>
     <div class="flex items-center gap-3 lg:hidden">
-      <a href="#rsvp" class="btn-gold !min-h-[38px] !px-4 !text-[.53rem]">RSVP</a>
       <button id="menu-toggle" class="grid h-10 w-10 place-items-center border border-gold/25 text-gold-light" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true"><path d="M1 1h16M1 7h16M1 13h16" stroke="currentColor" stroke-width="1.2"/></svg>
       </button>
@@ -1269,7 +1100,6 @@ textarea.field { resize: vertical; min-height: 72px; }
       <a href="#invitation" class="eyebrow text-ivory/70 hover:text-gold-light">Invitation</a>
       <a href="#celebration" class="eyebrow text-ivory/70 hover:text-gold-light">The Celebration</a>
       <a href="#details" class="eyebrow text-ivory/70 hover:text-gold-light">Details</a>
-      <a href="#rsvp" class="eyebrow text-ivory/70 hover:text-gold-light">RSVP</a>
       <a href="#venue" class="eyebrow text-ivory/70 hover:text-gold-light">The Venue</a>
     </nav>
   </div>
@@ -1596,7 +1426,6 @@ textarea.field { resize: vertical; min-height: 72px; }
     <div class="mt-10 flex flex-wrap items-center justify-center gap-3" data-reveal>
       <a href="#celebration" class="btn-outline">The Celebration</a>
       <a href="#details" class="btn-outline">Details</a>
-      <a href="#rsvp" class="btn-gold">RSVP for the Reunion</a>
       <button type="button" id="share-invitation" class="btn-outline">Share</button>
       <button type="button" id="save-invitation" class="btn-outline">Save Card</button>
       <button type="button" id="toggle-haptics" class="btn-outline">Haptics: Off</button>
@@ -1675,9 +1504,9 @@ textarea.field { resize: vertical; min-height: 72px; }
         <div class="flex items-start gap-4">
           <div class="detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.1"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.1"/></svg></div>
           <div>
-            <p class="eyebrow text-gold/55">RSVP Deadline</p>
-            <p class="mt-2 font-serif text-lg text-ivory">December 10, 2026</p>
-            <p class="mt-1 text-xs text-ivory/45">Please respond by this date to help us prepare.</p>
+            <p class="eyebrow text-gold/55">Arrival</p>
+            <p class="mt-2 font-serif text-lg text-ivory">9:30 AM</p>
+            <p class="mt-1 text-xs text-ivory/45">The program begins at 10:00 AM.</p>
           </div>
         </div>
       </article>
@@ -1753,7 +1582,7 @@ textarea.field { resize: vertical; min-height: 72px; }
         </details>
         <details class="faq-item">
           <summary>Can we bring children?</summary>
-          <p>All generations are welcome. Please include them in your RSVP guest count.</p>
+          <p>All generations are welcome. Please include children in your plans for the day.</p>
         </details>
         <details class="faq-item">
           <summary>Will there be food and drinks?</summary>
@@ -1810,108 +1639,7 @@ textarea.field { resize: vertical; min-height: 72px; }
   </div>
 </section>
 
-<section id="rsvp" class="section-dark relative overflow-hidden py-24 md:py-32">
-  <div class="relative mx-auto max-w-6xl px-6">
-    <div class="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
-      <div data-reveal>
-        <p class="eyebrow text-gold/65">With joy</p>
-        <h2 class="section-title mt-3 text-[clamp(2.8rem,6vw,4.8rem)]">Will you join us?</h2>
-        <p class="mt-6 max-w-md font-serif text-[1.05rem] leading-relaxed text-ivory/60">Your presence is the greatest gift. Kindly share your response so we may prepare a place at the table for you and your family.</p>
-        <div class="mt-8 space-y-5 border-t border-gold/12 pt-7">
-          <div class="flex items-start gap-4">
-            <span class="font-deco text-[10px] tracking-[.2em] text-gold/45">01</span>
-            <div>
-              <p class="eyebrow text-gold/55">The date</p>
-              <p class="mt-1 font-serif text-[1.02rem] text-ivory/75">Monday, December 28, 2026 at 10:00 AM</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <span class="font-deco text-[10px] tracking-[.2em] text-gold/45">02</span>
-            <div>
-              <p class="eyebrow text-gold/55">The place</p>
-              <p class="mt-1 font-serif text-[1.02rem] text-ivory/75">Firstgate, Alibagu, City of Ilagan, Isabela</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-4">
-            <span class="font-deco text-[10px] tracking-[.2em] text-gold/45">03</span>
-            <div>
-              <p class="eyebrow text-gold/55">The hosts</p>
-              <p class="mt-1 font-serif text-[1.02rem] text-ivory/75">The Edwin and Lina Family</p>
-            </div>
-          </div>
-        </div>
-        <p class="mt-8 font-serif text-sm italic leading-relaxed text-gold/55">For questions or special arrangements, please reach out to the Edwin and Lina Family.</p>
-      </div>
 
-      <div class="form-panel relative overflow-hidden p-6 sm:p-9 md:p-11" data-reveal>
-        <form id="rsvp-form" novalidate>
-          <div class="grid gap-6 sm:grid-cols-2">
-            <div class="sm:col-span-2">
-              <label for="rsvp-name" class="field-label">Full name</label>
-              <input id="rsvp-name" name="fullname" type="text" class="field" placeholder="Your full name" autocomplete="name" required>
-            </div>
-            <div class="sm:col-span-2">
-              <label for="rsvp-contact" class="field-label">Email or mobile number</label>
-              <input id="rsvp-contact" name="contact" type="text" class="field" placeholder="How we may reach you" autocomplete="email" required>
-            </div>
-            <div class="sm:col-span-2">
-              <label for="rsvp-guests" class="field-label">Number of guests</label>
-              <select id="rsvp-guests" name="guests" class="field">
-                <option value="1">1 guest</option>
-                <option value="2">2 guests</option>
-                <option value="3">3 guests</option>
-                <option value="4">4 guests</option>
-                <option value="5">5 guests</option>
-                <option value="6">6 guests</option>
-                <option value="7">7 guests</option>
-                <option value="8">8 guests</option>
-                <option value="9">9 guests</option>
-                <option value="10">10 or more guests</option>
-              </select>
-            </div>
-            <div class="sm:col-span-2">
-              <span class="field-label">Will you attend?</span>
-              <div class="mt-3 flex flex-wrap gap-3">
-                <label class="rsvp-choice cursor-pointer">
-                  <input type="radio" name="attendance" value="attending" class="sr-only" checked>
-                  <span class="inline-flex min-h-[42px] items-center border border-gold/30 px-4 py-2 font-sans text-[.6rem] uppercase tracking-[.18em] text-ivory/70">Joyfully attending</span>
-                </label>
-                <label class="rsvp-choice cursor-pointer">
-                  <input type="radio" name="attendance" value="declined" class="sr-only">
-                  <span class="inline-flex min-h-[42px] items-center border border-gold/30 px-4 py-2 font-sans text-[.6rem] uppercase tracking-[.18em] text-ivory/70">Sending love from afar</span>
-                </label>
-              </div>
-            </div>
-            <div class="sm:col-span-2">
-              <label for="rsvp-song" class="field-label">Song request <span class="normal-case tracking-normal text-ivory/30">(optional)</span></label>
-              <input id="rsvp-song" name="song" type="text" class="field" placeholder="A song that reminds you of home">
-            </div>
-            <div class="sm:col-span-2">
-              <label for="rsvp-message" class="field-label">A note for the family <span class="normal-case tracking-normal text-ivory/30">(optional)</span></label>
-              <textarea id="rsvp-message" name="message" class="field" rows="3" placeholder="Share a memory or a message"></textarea>
-            </div>
-          </div>
-          <p id="rsvp-error" class="mt-4 hidden font-serif text-sm text-[#e7b4a7]" role="alert"></p>
-          <div class="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <button type="submit" class="btn-gold w-full sm:w-auto">Send RSVP</button>
-            <p class="font-serif text-xs italic text-ivory/35">Your response is held with love.</p>
-          </div>
-        </form>
-
-        <div id="rsvp-success" class="rsvp-success hidden px-2 py-8 text-center" role="status" aria-live="polite">
-          <div class="mx-auto grid h-16 w-16 place-items-center rounded-full border border-gold/30 text-gold-light">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <p class="eyebrow mt-6 text-gold/60">Response received</p>
-          <p class="card-script mt-3 text-[clamp(2rem,4.5vw,2.8rem)] leading-tight text-gold-light">Thank you, <span id="rsvp-name-out">friend</span>.</p>
-          <p id="rsvp-success-message" class="mx-auto mt-3 max-w-sm font-serif text-[1.02rem] italic leading-relaxed text-ivory/60">We cannot wait to celebrate with you.</p>
-          <p class="mt-5 font-deco text-[8px] tracking-[.3em] text-gold/45">THE GUILLERMO CLAN · 2026</p>
-          <button type="button" id="rsvp-edit" class="mt-7 font-deco text-[9px] tracking-[.24em] text-gold/70 underline underline-offset-4 hover:text-gold-light">EDIT RESPONSE</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 </main>
 
 <footer id="site-footer" class="relative overflow-hidden border-t border-gold/10 bg-[#03110b] py-16" inert>
@@ -2236,205 +1964,6 @@ textarea.field { resize: vertical; min-height: 72px; }
       link.remove();
       window.setTimeout(() => URL.revokeObjectURL(url), 1200);
     });
-  }
-
-  const confettiCanvas = $('#confetti-canvas');
-  let confettiCtx = null;
-  let confettiPieces = [];
-  let confettiFrame = 0;
-  let confettiDpr = 1;
-  function sizeConfetti() {
-    if (!confettiCanvas) return;
-    confettiDpr = Math.min(window.devicePixelRatio || 1, 2);
-    confettiCanvas.width = Math.floor(window.innerWidth * confettiDpr);
-    confettiCanvas.height = Math.floor(window.innerHeight * confettiDpr);
-    confettiCtx = confettiCanvas.getContext('2d');
-    if (confettiCtx) confettiCtx.setTransform(confettiDpr, 0, 0, confettiDpr, 0, 0);
-  }
-  sizeConfetti();
-  window.addEventListener('resize', sizeConfetti);
-
-  function fireConfetti() {
-    if (!confettiCtx) sizeConfetti();
-    if (!confettiCtx) return;
-    const colors = ['#c6a15b', '#f4e8c9', '#ead5a5', '#1d4a33', '#fdfaf2', '#9c7532', '#d9b46a'];
-    const origins = [
-      { x: window.innerWidth * .5, y: window.innerHeight * .16, vx: 0, vy: -2.4, count: 130 },
-      { x: window.innerWidth * .12, y: window.innerHeight * .55, vx: 2.6, vy: -4.6, count: 48 },
-      { x: window.innerWidth * .88, y: window.innerHeight * .55, vx: -2.6, vy: -4.6, count: 48 }
-    ];
-    origins.forEach((origin) => {
-      for (let i = 0; i < origin.count; i++) {
-        const angle = Math.random() * Math.PI * 2;
-        const speed = 2 + Math.random() * 7;
-        confettiPieces.push({
-          x: origin.x,
-          y: origin.y,
-          vx: Math.cos(angle) * speed + origin.vx,
-          vy: Math.sin(angle) * speed + origin.vy - Math.random() * 2,
-          gravity: .13 + Math.random() * .07,
-          width: 4 + Math.random() * 6,
-          height: 8 + Math.random() * 10,
-          rotation: Math.random() * Math.PI,
-          spin: (Math.random() - .5) * .4,
-          color: colors[Math.floor(Math.random() * colors.length)],
-          life: 1,
-          decay: .0035 + Math.random() * .005,
-          shape: Math.random() < .28 ? 'circle' : 'rect'
-        });
-      }
-    });
-    if (!confettiFrame) loopConfetti();
-  }
-
-  function loopConfetti() {
-    if (!confettiCtx) return;
-    confettiCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    for (let i = confettiPieces.length - 1; i >= 0; i--) {
-      const piece = confettiPieces[i];
-      piece.vx *= .99;
-      piece.vy = piece.vy * .99 + piece.gravity;
-      piece.x += piece.vx;
-      piece.y += piece.vy;
-      piece.rotation += piece.spin;
-      piece.life -= piece.decay;
-      if (piece.life <= 0 || piece.y > window.innerHeight + 50) {
-        confettiPieces.splice(i, 1);
-        continue;
-      }
-      confettiCtx.save();
-      confettiCtx.globalAlpha = Math.min(1, piece.life * 1.8);
-      confettiCtx.translate(piece.x, piece.y);
-      confettiCtx.rotate(piece.rotation);
-      confettiCtx.fillStyle = piece.color;
-      if (piece.shape === 'circle') {
-        confettiCtx.beginPath();
-        confettiCtx.arc(0, 0, piece.width * .55, 0, Math.PI * 2);
-        confettiCtx.fill();
-      } else {
-        confettiCtx.fillRect(-piece.width / 2, -piece.height / 2, piece.width, piece.height);
-      }
-      confettiCtx.restore();
-    }
-    if (confettiPieces.length) {
-      confettiFrame = window.requestAnimationFrame(loopConfetti);
-    } else {
-      confettiFrame = 0;
-      confettiCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    }
-  }
-
-  const rsvpForm = $('#rsvp-form');
-  const rsvpSuccess = $('#rsvp-success');
-  const rsvpError = $('#rsvp-error');
-  if (rsvpForm) {
-    rsvpForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const nameInput = rsvpForm.elements.fullname;
-      const contactInput = rsvpForm.elements.contact;
-      const name = nameInput.value.trim();
-      const contact = contactInput.value.trim();
-      const attendanceInput = rsvpForm.querySelector('input[name="attendance"]:checked');
-      const attendance = attendanceInput ? attendanceInput.value : 'attending';
-      if (!name || !contact) {
-        if (rsvpError) {
-          rsvpError.textContent = 'Please share your name and a way for us to reach you.';
-          rsvpError.classList.remove('hidden');
-        }
-        if (!name) nameInput.focus(); else contactInput.focus();
-        return;
-      }
-      if (rsvpError) rsvpError.classList.add('hidden');
-      const response = {
-        name: name,
-        contact: contact,
-        guests: rsvpForm.elements.guests.value,
-        attendance: attendance,
-        song: (rsvpForm.elements.song && rsvpForm.elements.song.value.trim()) || '',
-        message: rsvpForm.elements.message.value.trim(),
-        submittedAt: new Date().toISOString()
-      };
-      try {
-        window.localStorage.setItem('guillermo-reunion-rsvp-2026', JSON.stringify(response));
-      } catch (err) {}
-      const nameOut = $('#rsvp-name-out');
-      const messageOut = $('#rsvp-success-message');
-      if (nameOut) nameOut.textContent = name.split(' ')[0] || 'friend';
-      if (messageOut) {
-        messageOut.textContent = attendance === 'attending'
-          ? 'We cannot wait to celebrate with you and yours.'
-          : 'Thank you for letting us know. You will be held in our hearts.';
-      }
-      rsvpForm.classList.add('hidden');
-      if (rsvpSuccess) {
-        rsvpSuccess.classList.remove('hidden');
-        if (window.gsap && !reduceMotion) {
-          gsap.fromTo(rsvpSuccess, { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: .7, ease: 'power2.out' });
-        }
-      }
-      if (attendance === 'attending') {
-        fireConfetti();
-        showRsvpSealing(name);
-      }
-      if (rsvpSuccess && !reduceMotion) rsvpSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
-  }
-
-  const editResponse = $('#rsvp-edit');
-  if (editResponse) {
-    editResponse.addEventListener('click', () => {
-      if (rsvpSuccess) rsvpSuccess.classList.add('hidden');
-      if (rsvpForm) {
-        rsvpForm.classList.remove('hidden');
-        if (window.gsap && !reduceMotion) gsap.fromTo(rsvpForm, { autoAlpha: 0 }, { autoAlpha: 1, duration: .5 });
-      }
-    });
-  }
-
-  // RSVP sealing ritual + constellation
-  function showRsvpSealing(name) {
-    let modal = document.getElementById('rsvp-seal-modal');
-    if (!modal) {
-      modal = document.createElement('div');
-      modal.id = 'rsvp-seal-modal';
-      modal.className = 'modal-overlay';
-      modal.innerHTML = `
-        <div class="modal-panel relative text-center">
-          <button class="modal-close" id="rsvp-seal-close" aria-label="Close">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2l12 12M14 2L2 14" stroke="currentColor" stroke-width="1.2"/></svg>
-          </button>
-          <div class="rsvp-seal-mark mx-auto">
-            <svg viewBox="0 0 100 100" fill="none"><path d="M50 22c8-8 21-6 23 5 9 1 13 12 4 18 3 10-7 17-15 12-4 7-13 8-19 4-8 5-18-2-14-11-8-5-5-16 4-18-1-9 10-14 17-10Z" stroke="currentColor" stroke-width="1.2"/><path d="M50 33c7-5 15 2 10 8 6 4 1 13-6 10-2 6-10 6-12 0-6 3-11-5-5-9-5-7 4-14 10-10-1-1 2-1 3 1Z" stroke="currentColor" stroke-width="1"/></svg>
-          </div>
-          <p class="eyebrow mt-6 text-gold/60">Sealed with love</p>
-          <p class="card-script mt-3 text-[clamp(2rem,4.5vw,2.8rem)] leading-tight text-gold-light">Your seat is sealed, <span id="seal-name">${name.split(' ')[0] || 'friend'}</span>.</p>
-          <p class="mx-auto mt-3 max-w-sm font-serif text-[1.02rem] italic leading-relaxed text-ivory/60">You are now part of the living family constellation.</p>
-          <svg class="constellation" viewBox="0 0 300 180" aria-hidden="true">
-            <line x1="60" y1="90" x2="120" y2="60"/>
-            <line x1="120" y1="60" x2="180" y2="70"/>
-            <line x1="180" y1="70" x2="240" y2="90"/>
-            <line x1="120" y1="60" x2="150" y2="110"/>
-            <line x1="150" y1="110" x2="90" y2="120"/>
-            <circle cx="60" cy="90" r="4"/>
-            <circle cx="120" cy="60" r="5" class="lit"/>
-            <circle cx="180" cy="70" r="4"/>
-            <circle cx="240" cy="90" r="4"/>
-            <circle cx="150" cy="110" r="4"/>
-            <circle cx="90" cy="120" r="4"/>
-          </svg>
-        </div>
-      `;
-      document.body.appendChild(modal);
-      modal.querySelector('#rsvp-seal-close').addEventListener('click', () => modal.remove());
-      modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
-    } else {
-      const sealName = modal.querySelector('#seal-name');
-      if (sealName) sealName.textContent = name.split(' ')[0] || 'friend';
-    }
-    document.body.appendChild(modal);
-    if (window.gsap && !reduceMotion) {
-      gsap.fromTo(modal.querySelector('.modal-panel'), { autoAlpha: 0, scale: .98 }, { autoAlpha: 1, scale: 1, duration: .6, ease: 'power2.out' });
-    }
   }
 
   if (window.gsap && window.ScrollTrigger) {
