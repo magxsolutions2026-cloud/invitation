@@ -201,6 +201,32 @@ a { color: inherit; text-decoration: none; }
   transition: background .3s, border-color .3s, color .3s, transform .3s;
 }
 .btn-outline:hover { background: rgba(198,161,91,.12); border-color: #c6a15b; transform: translateY(-2px); }
+.scroll-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .45rem;
+  color: rgba(234,213,165,.78);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: .58rem;
+  letter-spacing: .28em;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity .5s ease, transform .5s ease, visibility .5s ease;
+}
+.is-opening .scroll-cue {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.scroll-cue svg { animation: scrollCueBounce 1.7s ease-in-out infinite; }
+@keyframes scrollCueBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
 .hero-shell {
   height: 100vh;
   height: 100svh;
@@ -1278,7 +1304,10 @@ textarea.field { resize: vertical; min-height: 72px; }
   </div>
 
   <div class="hero-canvas-ui absolute inset-x-0 bottom-8 z-20 flex flex-col items-center gap-5 px-6 md:bottom-10">
-    
+    <a id="scroll-cue" class="scroll-cue" href="#invitation" aria-label="Scroll down to the invitation">
+      <span>SCROLL DOWN</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v10m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
     <div class="hidden items-center gap-3 md:flex" aria-hidden="true">
       <span class="font-deco text-[8px] tracking-[.28em] text-ivory/28">ROOTS</span>
       <span class="h-px w-8 bg-gold/20"></span>
@@ -1989,10 +2018,6 @@ textarea.field { resize: vertical; min-height: 72px; }
     document.body.classList.add('webgl-fallback');
     document.body.classList.add('is-opening');
     window.__invitationOpened();
-    window.setTimeout(() => {
-      const invitation = $('#invitation');
-      if (invitation) invitation.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-    }, 2200);
   }
 
   let openTries = 0;
@@ -3500,12 +3525,6 @@ async function init() {
     sparkUniforms.uScale.value = bufferSize.y / (2 * Math.tan(vFov * .5));
   }
 
-  function scrollToInvitation() {
-    if (window.scrollY > window.innerHeight * .55) return;
-    const invitation = document.getElementById('invitation');
-    if (invitation) invitation.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-  }
-
   let openFinished = false;
 
   function applyOpenState() {
@@ -3520,7 +3539,6 @@ async function init() {
     if (openFinished) return;
     openFinished = true;
     if (window.__invitationOpened) window.__invitationOpened();
-    window.setTimeout(scrollToInvitation, 1100);
   }
 
   function openInvitation() {
