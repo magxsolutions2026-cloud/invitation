@@ -2766,12 +2766,12 @@ function makeCardCanvas() {
   c.width = width;
   c.height = height;
   const ctx = c.getContext('2d');
-  ctx.fillStyle = '#f7efdf';
+  ctx.fillStyle = '#efe5d2';
   ctx.fillRect(0, 0, width, height);
   const wash = ctx.createRadialGradient(width * .5, height * .22, 40, width * .5, height * .3, height * .72);
-  wash.addColorStop(0, 'rgba(255,253,246,.9)');
-  wash.addColorStop(.55, 'rgba(247,238,221,.3)');
-  wash.addColorStop(1, 'rgba(214,192,157,.34)');
+  wash.addColorStop(0, 'rgba(255,253,246,.58)');
+  wash.addColorStop(.55, 'rgba(247,238,221,.22)');
+  wash.addColorStop(1, 'rgba(214,192,157,.3)');
   ctx.fillStyle = wash;
   ctx.fillRect(0, 0, width, height);
   addPaperGrain(ctx, width, height, '255,250,236');
@@ -2819,7 +2819,7 @@ function makeCardCanvas() {
   ctx.beginPath();
   ctx.arc(width * .5, 430, 112, 0, Math.PI * 2);
   ctx.fill();
-  ctx.fillStyle = '#f3e7ce';
+  ctx.fillStyle = '#f0e4cc';
   ctx.beginPath();
   ctx.arc(width * .5, 430, 102, 0, Math.PI * 2);
   ctx.fill();
@@ -2828,25 +2828,25 @@ function makeCardCanvas() {
   ctx.beginPath();
   ctx.arc(width * .5, 430, 93, 0, Math.PI * 2);
   ctx.stroke();
-  ctx.fillStyle = '#9c7532';
+  ctx.fillStyle = '#765116';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.font = 'italic 400 92px "Cormorant Garamond", serif';
   ctx.fillText('T & P', width * .5, 438);
   ctx.textBaseline = 'alphabetic';
-  ctx.fillStyle = '#8a6a32';
-  ctx.font = '600 21px Cinzel, serif';
+  ctx.fillStyle = '#58451f';
+  ctx.font = '600 23px Cinzel, serif';
   ctx.fillText('THE GUILLERMO CLAN', width * .5, 610);
-  ctx.font = '400 19px Cinzel, serif';
+  ctx.font = '600 20px Cinzel, serif';
   ctx.fillText('INVITES YOU TO THE', width * .5, 644);
-  ctx.fillStyle = '#916d30';
-  ctx.font = 'italic 400 116px "Cormorant Garamond", serif';
+  ctx.fillStyle = '#694815';
+  ctx.font = 'italic 500 116px "Cormorant Garamond", serif';
   ctx.fillText('Family Reunion', width * .5, 770);
-  ctx.fillStyle = '#7a5a28';
-  ctx.font = '600 34px Cinzel, serif';
+  ctx.fillStyle = '#59421c';
+  ctx.font = '600 36px Cinzel, serif';
   ctx.fillText('2026', width * .5, 812);
-  ctx.fillStyle = '#8a6a32';
-  ctx.font = 'italic 400 27px "Cormorant Garamond", serif';
+  ctx.fillStyle = '#59451f';
+  ctx.font = 'italic 500 30px "Cormorant Garamond", serif';
   ctx.fillText('Teto  &  Pilar Guillermo', width * .5, 864);
   ctx.strokeStyle = 'rgba(143,108,48,.45)';
   ctx.lineWidth = 1;
@@ -2864,15 +2864,15 @@ function makeCardCanvas() {
   ctx.lineTo(width * .5 - 6, 902);
   ctx.closePath();
   ctx.fill();
-  ctx.fillStyle = '#7a5a28';
-  ctx.font = '500 16px Jost, sans-serif';
+  ctx.fillStyle = '#59451f';
+  ctx.font = '600 19px Jost, sans-serif';
   ctx.fillText('DECEMBER 28, 2026  ·  10:00 AM', width * .5, 956);
-  ctx.fillStyle = '#8a6a32';
-  ctx.font = '400 17px Cinzel, serif';
+  ctx.fillStyle = '#59451f';
+  ctx.font = '500 19px Cinzel, serif';
   ctx.fillText('FIRSTGATE, ALIBAGU · CITY OF ILAGAN', width * .5, 994);
   ctx.fillText('ISABELA, PHILIPPINES', width * .5, 1022);
-  ctx.fillStyle = 'rgba(138,106,50,.8)';
-  ctx.font = 'italic 400 23px "Cormorant Garamond", serif';
+  ctx.fillStyle = '#675026';
+  ctx.font = 'italic 500 26px "Cormorant Garamond", serif';
   ctx.fillText('Honoring our roots and legacy', width * .5, 1092);
   return c;
 }
@@ -3127,7 +3127,7 @@ async function init() {
   });
 
   const cardEdgeMaterial = new THREE.MeshStandardMaterial({ color: 0xf1e5cf, roughness: .86, metalness: 0 });
-  const cardFaceMaterial = new THREE.MeshStandardMaterial({ map: cardTex, roughness: .8, metalness: .04, envMapIntensity: .35, emissive: 0x8a6428, emissiveIntensity: 0 });
+  const cardFaceMaterial = new THREE.MeshStandardMaterial({ map: cardTex, roughness: .8, metalness: .04, envMapIntensity: .25, emissive: 0x59421c, emissiveIntensity: 0 });
   const roseMaterial = new THREE.MeshPhysicalMaterial({
     map: roseTex,
     transparent: true,
@@ -3597,10 +3597,10 @@ async function init() {
     if (window.gsap && !reduceMotion) {
       gsap.to(camera.position, { z: openCameraZ() * .94, duration: 1.05, ease: 'power2.out' });
       gsap.to(cameraFocus, { y: .2, duration: 1.05, ease: 'power2.out' });
-      gsap.to(cardFaceMaterial, { emissiveIntensity: .24, duration: .9, ease: 'power2.out' });
+      gsap.to(cardFaceMaterial, { emissiveIntensity: .06, duration: .9, ease: 'power2.out' });
     } else {
       cameraFocus.y = .02;
-      cardFaceMaterial.emissiveIntensity = .24;
+      cardFaceMaterial.emissiveIntensity = .06;
     }
   }
 
