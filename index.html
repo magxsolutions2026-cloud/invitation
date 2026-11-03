@@ -1705,8 +1705,10 @@ a { color: inherit; text-decoration: none; }
 
   function startHeroIntro() {
     if (!window.gsap || reduceMotion) return;
-    gsap.from('#hero-top-copy', { autoAlpha: 0, y: 18, duration: 1.15, ease: 'power3.out', delay: .15 });
-    gsap.from('#open-invitation-btn', { autoAlpha: 0, y: 14, duration: 1, ease: 'power2.out', delay: .75 });
+    const heroCopy = $('#hero-top-copy');
+    const openButton = $('#open-invitation-btn');
+    if (heroCopy) gsap.from(heroCopy, { autoAlpha: 0, y: 18, duration: 1.15, ease: 'power3.out', delay: .15 });
+    if (openButton) gsap.from(openButton, { autoAlpha: 0, y: 14, duration: 1, ease: 'power2.out', delay: .75 });
   }
 
   window.__invitationOpened = function () {
@@ -1731,8 +1733,9 @@ a { color: inherit; text-decoration: none; }
         panel.style.opacity = '1';
       }
     }
-    if (window.gsap && !reduceMotion) {
-      gsap.to('#hero-top-copy', { autoAlpha: 0, y: -12, duration: .8, ease: 'power2.out' });
+    const heroCopy = $('#hero-top-copy');
+    if (heroCopy && window.gsap && !reduceMotion) {
+      gsap.to(heroCopy, { autoAlpha: 0, y: -12, duration: .8, ease: 'power2.out' });
     }
   };
 
