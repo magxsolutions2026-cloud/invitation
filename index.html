@@ -73,6 +73,33 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
+.welcome-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  background: #000;
+}
+.welcome-continue {
+  min-width: 168px;
+  min-height: 54px;
+  padding: 0 2rem;
+  border: 1px solid rgba(198,161,91,.7);
+  color: #ead5a5;
+  background: #000;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: .72rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.welcome-continue:hover,
+.welcome-continue:focus-visible {
+  color: #000;
+  background: #ead5a5;
+  outline: none;
+}
 body::after {
   content: "";
   position: fixed;
@@ -1160,6 +1187,9 @@ textarea.field { resize: vertical; min-height: 72px; }
 </style>
 </head>
 <body>
+<section id="welcome-screen" class="welcome-screen" aria-label="Welcome">
+  <button id="welcome-continue" class="welcome-continue" type="button">Continue</button>
+</section>
 <a href="#invitation" class="skip-link">Skip to the invitation</a>
 <div id="loader" aria-hidden="true">
   <div class="text-center">
@@ -1171,7 +1201,7 @@ textarea.field { resize: vertical; min-height: 72px; }
 <div class="scroll-progress" id="scroll-progress"></div>
 <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
 
-<header class="site-nav fixed inset-x-0 top-0 z-[100] px-6 py-5 lg:px-10" id="site-nav">
+<header class="site-nav fixed inset-x-0 top-0 z-[100] px-6 py-5 lg:px-10" id="site-nav" inert>
   <div class="mx-auto flex max-w-[1440px] items-center justify-between">
     <a href="#hero" class="group flex items-center gap-3" aria-label="The Guillermo Clan home">
       <span class="grid h-10 w-10 place-items-center border border-gold/40 font-deco text-[10px] tracking-[.18em] text-gold-light transition-colors group-hover:border-gold">T&amp;P</span>
@@ -1205,7 +1235,7 @@ textarea.field { resize: vertical; min-height: 72px; }
   </div>
 </header>
 
-<main>
+<main inert>
 <section id="hero" class="hero-shell relative min-h-[100svh] overflow-hidden">
   <div class="hero-corner left-0 top-0 opacity-30" aria-hidden="true">
     <svg viewBox="0 0 320 260" fill="none">
@@ -1841,7 +1871,7 @@ textarea.field { resize: vertical; min-height: 72px; }
 </section>
 </main>
 
-<footer class="relative overflow-hidden border-t border-gold/10 bg-[#03110b] py-16">
+<footer id="site-footer" class="relative overflow-hidden border-t border-gold/10 bg-[#03110b] py-16" inert>
   <div class="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center overflow-hidden" aria-hidden="true">
     <span class="footer-monogram">T&amp;P</span>
   </div>
@@ -1861,20 +1891,30 @@ textarea.field { resize: vertical; min-height: 72px; }
 <script>
 (function () {
   'use strict';
-  // Fullscreen on mobile
-  function goFullscreen() {
-    const el = document.documentElement;
-    if (el.requestFullscreen) el.requestFullscreen().catch(()=>{});
-    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
-    else if (el.msRequestFullscreen) el.msRequestFullscreen();
-  }
-  if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-    document.addEventListener('click', goFullscreen, { once: true });
-    document.addEventListener('touchstart', goFullscreen, { once: true });
-  }
   const $ = (selector, context = document) => context.querySelector(selector);
   const $$ = (selector, context = document) => Array.from(context.querySelectorAll(selector));
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const welcomeScreen = $('#welcome-screen');
+  const welcomeContinue = $('#welcome-continue');
+  if (welcomeContinue && welcomeScreen) {
+    welcomeContinue.addEventListener('click', () => {
+      let fullscreenRequest;
+      const root = document.documentElement;
+      try {
+        if (root.requestFullscreen) fullscreenRequest = root.requestFullscreen();
+        else if (root.webkitRequestFullscreen) fullscreenRequest = root.webkitRequestFullscreen();
+        else if (root.msRequestFullscreen) fullscreenRequest = root.msRequestFullscreen();
+      } catch (error) {}
+
+      Promise.resolve(fullscreenRequest).catch(() => {}).finally(() => {
+        welcomeScreen.remove();
+        $('#site-nav')?.removeAttribute('inert');
+        $('main')?.removeAttribute('inert');
+        $('#site-footer')?.removeAttribute('inert');
+      });
+    }, { once: true });
+  }
 
   let webglSupported = false;
   try {
