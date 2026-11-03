@@ -2316,45 +2316,45 @@ function makeCardCanvas() {
   ctx.stroke();
   ctx.textAlign = 'center';
   ctx.fillStyle = '#58451f';
-  ctx.font = '600 23px Cinzel, serif';
+  ctx.font = '600 29px Cinzel, serif';
   ctx.fillText('THE GUILLERMO CLAN', width * .5, 390);
-  ctx.font = '600 20px Cinzel, serif';
+  ctx.font = '600 24px Cinzel, serif';
   ctx.fillText('INVITES YOU TO THE', width * .5, 424);
   ctx.fillStyle = '#694815';
-  ctx.font = 'italic 500 116px "Cormorant Garamond", serif';
-  ctx.fillText('Family Reunion', width * .5, 550);
+  ctx.font = 'italic 500 132px "Cormorant Garamond", serif';
+  ctx.fillText('Family Reunion', width * .5, 550, width * .94);
   ctx.fillStyle = '#59421c';
-  ctx.font = '600 36px Cinzel, serif';
-  ctx.fillText('2026', width * .5, 592);
+  ctx.font = '600 42px Cinzel, serif';
+  ctx.fillText('2026', width * .5, 618);
   ctx.fillStyle = '#59451f';
-  ctx.font = 'italic 500 30px "Cormorant Garamond", serif';
-  ctx.fillText('Teto and Pilar Guillermo', width * .5, 644);
+  ctx.font = 'italic 500 36px "Cormorant Garamond", serif';
+  ctx.fillText('Teto and Pilar Guillermo', width * .5, 666, width * .92);
   ctx.strokeStyle = 'rgba(143,108,48,.45)';
   ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.moveTo(width * .5 - 140, 682);
-  ctx.lineTo(width * .5 - 16, 682);
-  ctx.moveTo(width * .5 + 16, 682);
-  ctx.lineTo(width * .5 + 140, 682);
+  ctx.moveTo(width * .5 - 140, 710);
+  ctx.lineTo(width * .5 - 16, 710);
+  ctx.moveTo(width * .5 + 16, 710);
+  ctx.lineTo(width * .5 + 140, 710);
   ctx.stroke();
   ctx.fillStyle = '#8f6c30';
   ctx.beginPath();
-  ctx.moveTo(width * .5, 676);
-  ctx.lineTo(width * .5 + 6, 682);
-  ctx.lineTo(width * .5, 688);
-  ctx.lineTo(width * .5 - 6, 682);
+  ctx.moveTo(width * .5, 704);
+  ctx.lineTo(width * .5 + 6, 710);
+  ctx.lineTo(width * .5, 716);
+  ctx.lineTo(width * .5 - 6, 710);
   ctx.closePath();
   ctx.fill();
   ctx.fillStyle = '#59451f';
-  ctx.font = '600 19px Jost, sans-serif';
-  ctx.fillText('DECEMBER 23, 2026  ·  7:00 AM', width * .5, 736);
+  ctx.font = '600 24px Jost, sans-serif';
+  ctx.fillText('DECEMBER 23, 2026  ·  7:00 AM', width * .5, 764, width * .92);
   ctx.fillStyle = '#59451f';
-  ctx.font = '500 19px Cinzel, serif';
-  ctx.fillText('FIRSTGATE, ALIBAGU · CITY OF ILAGAN', width * .5, 774);
-  ctx.fillText('ISABELA, PHILIPPINES', width * .5, 802);
+  ctx.font = '500 23px Cinzel, serif';
+  ctx.fillText('FIRSTGATE, ALIBAGU · CITY OF ILAGAN', width * .5, 804, width * .92);
+  ctx.fillText('ISABELA, PHILIPPINES', width * .5, 834);
   ctx.fillStyle = '#675026';
-  ctx.font = 'italic 500 26px "Cormorant Garamond", serif';
-  ctx.fillText('Honoring our roots and legacy', width * .5, 872);
+  ctx.font = 'italic 500 31px "Cormorant Garamond", serif';
+  ctx.fillText('Honoring our roots and legacy', width * .5, 910, width * .92);
   return c;
 }
 
@@ -2780,10 +2780,10 @@ async function init() {
   const cardGroup = new THREE.Group();
   cardGroup.position.set(0, -.1, .034);
   envelopeGroup.add(cardGroup);
-  const cardBody = new THREE.Mesh(new RoundedBoxGeometry(2, 2.66, .035, 4, .02), cardEdgeMaterial);
+  const cardBody = new THREE.Mesh(new RoundedBoxGeometry(2.18, 2.91, .035, 4, .02), cardEdgeMaterial);
   cardBody.castShadow = true;
   cardGroup.add(cardBody);
-  const cardFace = new THREE.Mesh(new THREE.PlaneGeometry(1.96, 2.62), cardFaceMaterial);
+  const cardFace = new THREE.Mesh(new THREE.PlaneGeometry(2.14, 2.87), cardFaceMaterial);
   cardFace.position.z = .019;
   cardGroup.add(cardFace);
 
@@ -3063,7 +3063,7 @@ async function init() {
   }
 
   function openCameraZ() {
-    return baseCamZ * 1.16;
+    return baseCamZ * 1.2;
   }
 
   function layout() {
