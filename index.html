@@ -2240,40 +2240,13 @@ function makeCardCanvas() {
     ctx.lineTo(x + sx * 48, y + sy * 8);
     ctx.stroke();
   });
-  ctx.strokeStyle = 'rgba(178,138,67,.4)';
-  ctx.lineWidth = 1.2;
-  [0, 1, 2].forEach((index) => {
-    ctx.beginPath();
-    ctx.moveTo(width * .5 - 150 + index * 18, 300 + index * 12);
-    ctx.bezierCurveTo(width * .5 - 70, 290 + index * 12, width * .5 + 70, 310 + index * 12, width * .5 + 150 - index * 18, 300 + index * 12);
-    ctx.stroke();
-  });
-  const medallion = ctx.createLinearGradient(width * .5 - 112, 318, width * .5 + 112, 542);
-  medallion.addColorStop(0, '#8f6c30');
-  medallion.addColorStop(.2, '#e6cd8a');
-  medallion.addColorStop(.42, '#f9edc5');
-  medallion.addColorStop(.7, '#b88d45');
-  medallion.addColorStop(1, '#8f6c30');
-  ctx.fillStyle = medallion;
-  ctx.beginPath();
-  ctx.arc(width * .5, 430, 112, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.fillStyle = '#f0e4cc';
-  ctx.beginPath();
-  ctx.arc(width * .5, 430, 102, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.strokeStyle = 'rgba(143,108,48,.5)';
-  ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  ctx.arc(width * .5, 430, 93, 0, Math.PI * 2);
-  ctx.stroke();
   ctx.fillStyle = '#58451f';
   ctx.font = '600 23px Cinzel, serif';
   ctx.fillText('THE GUILLERMO CLAN', width * .5, 610);
   ctx.font = '600 20px Cinzel, serif';
   ctx.fillText('INVITES YOU TO THE', width * .5, 644);
   ctx.fillStyle = '#694815';
-  ctx.font = 'italic 500 116px "Cormorant Garamond", serif';
+  ctx.font = 'italic 500 88px "Cormorant Garamond", serif';
   ctx.fillText('Family Reunion', width * .5, 770);
   ctx.fillStyle = '#59421c';
   ctx.font = '600 36px Cinzel, serif';
@@ -2313,17 +2286,8 @@ function makeCardCanvas() {
 function drawCanvasPortrait(ctx, image) {
   const centerX = 460;
   const centerY = 430;
-  ctx.save();
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, 90, 0, Math.PI * 2);
-  ctx.clip();
-  ctx.drawImage(image, centerX - 90, centerY - 90, 180, 180);
-  ctx.restore();
-  ctx.strokeStyle = 'rgba(143,108,48,.62)';
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.arc(centerX, centerY, 93, 0, Math.PI * 2);
-  ctx.stroke();
+  const size = 240;
+  ctx.drawImage(image, centerX - size / 2, centerY - size / 2, size, size);
 }
 
 function makeRoseCanvas(size = 640) {
