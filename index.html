@@ -3506,24 +3506,6 @@ async function init() {
       return;
     }
 
-    window.setTimeout(() => {
-      applyOpenState();
-      finishOpen();
-    }, 2600);
-
-    const tl = gsap.tirstSparks(sparkOrigin, 120);
-
-    if (!window.gsap || reduceMotion) {
-      applyOpenState();
-      finishOpen();
-      return;
-    }
-
-    window.setTimeout(() => {
-      applyOpenState();
-      finishOpen();
-    }, 2600);
-
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
     tl.to(sealGroup.scale, { x: 1.22, y: 1.22, z: 1.22, duration: .3, ease: 'back.out(2.4)' }, 0)
       .to(sealGroup.position, { z: .3, duration: .34 }, 0)
