@@ -2138,18 +2138,15 @@ function makeEnvelopeFrontCanvas(portrait) {
   });
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.font = '500 38px Cinzel, serif';
+  ctx.font = '500 19px Jost, sans-serif';
   ctx.fillStyle = 'rgba(0,0,0,.52)';
-  ctx.fillText('T  &  P', width * .5, height - 128);
-  ctx.fillStyle = 'rgba(255,246,215,.15)';
-  ctx.fillText('T  &  P', width * .5, height - 134);
-  ctx.fillStyle = 'rgba(214,183,117,.52)';
-  ctx.fillText('T  &  P', width * .5, height - 131);
-  ctx.font = '400 17px Jost, sans-serif';
-  ctx.fillStyle = 'rgba(0,0,0,.42)';
-  ctx.fillText('MMXXVI', width * .5, height - 90);
-  ctx.fillStyle = 'rgba(198,161,91,.44)';
-  ctx.fillText('MMXXVI', width * .5, height - 92);
+  ctx.fillText('HOSTED BY', width * .5, height - 143);
+  ctx.fillText('EDWIN AND LINA', width * .5, height - 119);
+  ctx.fillText('GUILLERMO FAMILY', width * .5, height - 95);
+  ctx.fillStyle = 'rgba(214,183,117,.72)';
+  ctx.fillText('HOSTED BY', width * .5, height - 146);
+  ctx.fillText('EDWIN AND LINA', width * .5, height - 122);
+  ctx.fillText('GUILLERMO FAMILY', width * .5, height - 98);
   return c;
 }
 
