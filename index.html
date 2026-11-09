@@ -70,7 +70,7 @@ a{color:inherit}
 @media (hover:hover){.continue:hover{background:var(--gold-300);color:var(--wine-800)}}
 
 /* ---------- envelope intro ---------- */
-#intro{position:fixed;inset:0;z-index:50;overflow:hidden;background:var(--wine-900);transition:opacity 1s ease,visibility 1s}
+#intro{position:fixed;inset:0;z-index:50;overflow:hidden;background:#070103;transition:opacity 1s ease,visibility 1s}
 #intro.gone{opacity:0;visibility:hidden}
 .stage{position:absolute;inset:0;perspective:1400px;perspective-origin:50% 45%}
 .env{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform;transform:scale(1.12);opacity:0;transition:opacity .9s ease}
@@ -113,8 +113,7 @@ a{color:inherit}
 .hint .for{display:block;font-size:26px;letter-spacing:.015em;text-transform:none;color:var(--gold-100);margin-bottom:2px}
 .hint .tap{animation:breathe 2.6s ease-in-out infinite}
 @keyframes breathe{0%,100%{opacity:.5}50%{opacity:1}}
-.skip{position:absolute;right:12px;top:calc(12px + var(--st));z-index:6;font-family:Jost,sans-serif;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-300);opacity:.75;padding:10px 12px;text-shadow:0 1px 3px rgba(0,0,0,.7)}
-.opening .hint,.opening .skip{opacity:0}
+.opening .hint{opacity:0}
 
 /* ================= SITE ================= */
 #site{position:relative;z-index:2;opacity:0;transition:opacity 1s ease}
@@ -334,7 +333,6 @@ footer{padding:90px 0 calc(56px + var(--sb));text-align:center}
 
 <!-- ============ ENVELOPE ============ -->
 <div id="intro" role="dialog" aria-label="Invitation envelope">
-  <button class="skip" id="skip">Skip ›</button>
   <div class="stage" id="stage">
     <div class="env" id="env">
       <div class="layer back" id="lBack"></div>
@@ -387,7 +385,6 @@ footer{padding:90px 0 calc(56px + var(--sb));text-align:center}
               </div>
               <div class="venue w" style="--i:8">FIRSTGATE, ALIBAGU<small>City of Ilagan, Isabela · Philippines</small></div>
               <p class="host w" style="--i:9">Warmly hosted by<br><b>the Edwin and Lina Guillermo Family</b></p>
-              <div class="for-row w" style="--i:10"><span class="lbl">Prepared for</span><span class="n script foil" id="guestName">Guest</span></div>
             </div>
           </div>
           <div class="card-seal" id="cardSeal" aria-hidden="true"></div>
@@ -515,12 +512,12 @@ async function raster(svg,wCss,hCss,host){
 }
 
 /* ---------- envelope artwork ---------- */
-const DEFS=`<defs>
+const DEFS=()=>`<defs>
  <filter id='emb' x='0' y='0' width='100%' height='100%' color-interpolation-filters='sRGB'>
   <feGaussianBlur in='SourceAlpha' stdDeviation='1.5' result='h'/>
   <feDiffuseLighting in='h' surfaceScale='3.2' diffuseConstant='1.28' lighting-color='#fff' result='d'><feDistantLight azimuth='235' elevation='52'/></feDiffuseLighting>
-  <feSpecularLighting in='h' surfaceScale='3.2' specularConstant='.45' specularExponent='20' lighting-color='#ffcdb8' result='s'><feDistantLight azimuth='235' elevation='52'/></feSpecularLighting>
-  <feFlood flood-color='#6b1a27' result='c'/><feBlend in='d' in2='c' mode='multiply' result='m'/>
+  <feSpecularLighting in='h' surfaceScale='3.2' specularConstant='.5' specularExponent='20' lighting-color='#e8a594' result='s'><feDistantLight azimuth='235' elevation='52'/></feSpecularLighting>
+  <feFlood flood-color='#2e0710' result='c'/><feBlend in='d' in2='c' mode='multiply' result='m'/>
   <feComposite in='s' in2='m' operator='arithmetic' k2='1' k3='1' result='o'/>
   <feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' seed='4' result='n'/>
   <feColorMatrix in='n' type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .14 0' result='n2'/>
@@ -529,7 +526,7 @@ const DEFS=`<defs>
   <feGaussianBlur in='SourceAlpha' stdDeviation='1.1' result='h'/>
   <feDiffuseLighting in='h' surfaceScale='2.2' diffuseConstant='1.2' lighting-color='#fff' result='d'><feDistantLight azimuth='235' elevation='55'/></feDiffuseLighting>
   <feSpecularLighting in='h' surfaceScale='2.4' specularConstant='.9' specularExponent='14' lighting-color='#fff2c8' result='s'><feDistantLight azimuth='235' elevation='55'/></feSpecularLighting>
-  <feFlood flood-color='#8f6d31' result='c'/><feBlend in='d' in2='c' mode='multiply' result='m'/>
+  <feFlood flood-color='#7a5a26' result='c'/><feBlend in='d' in2='c' mode='multiply' result='m'/>
   <feComposite in='s' in2='m' operator='arithmetic' k2='1' k3='1'/></filter>
  <filter id='dsR' x='-5%' y='-5%' width='110%' height='110%'><feGaussianBlur in='SourceAlpha' stdDeviation='3'/><feOffset dx='3' dy='0'/><feComponentTransfer><feFuncA type='linear' slope='.45'/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in='SourceGraphic'/></feMerge></filter>
  <filter id='dsL' x='-5%' y='-5%' width='110%' height='110%'><feGaussianBlur in='SourceAlpha' stdDeviation='3'/><feOffset dx='-3' dy='0'/><feComponentTransfer><feFuncA type='linear' slope='.45'/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in='SourceGraphic'/></feMerge></filter>
@@ -539,7 +536,9 @@ const DEFS=`<defs>
  <linearGradient id='shR' x1='1' y1='0' x2='0' y2='0'><stop offset='0' stop-color='#000' stop-opacity='.26'/><stop offset='1' stop-color='#000' stop-opacity='.08'/></linearGradient>
  <linearGradient id='shB' x1='0' y1='1' x2='0' y2='0'><stop offset='0' stop-color='#000' stop-opacity='.22'/><stop offset='.7' stop-color='#fff' stop-opacity='.04'/><stop offset='1' stop-color='#fff' stop-opacity='.1'/></linearGradient>
  <linearGradient id='shT' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#fff' stop-opacity='.05'/><stop offset='1' stop-color='#000' stop-opacity='.12'/></linearGradient>
- <linearGradient id='lG' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#d6b97c'/><stop offset='.5' stop-color='#b08b47'/><stop offset='1' stop-color='#7f5f2a'/></linearGradient>
+ <linearGradient id='gD' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='${W}' y2='${H}'><stop offset='0' stop-color='#8a2233' stop-opacity='.5'/><stop offset='.4' stop-color='#4a0d19' stop-opacity='.12'/><stop offset='.72' stop-color='#000' stop-opacity='.5'/><stop offset='1' stop-color='#000' stop-opacity='.88'/></linearGradient>
+ <radialGradient id='gV' gradientUnits='userSpaceOnUse' cx='${W/2}' cy='${H*.45}' r='${Math.max(W,H)*.75}'><stop offset='.3' stop-color='#000' stop-opacity='0'/><stop offset='1' stop-color='#000' stop-opacity='.6'/></radialGradient>
+ <linearGradient id='lG' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#c2a266'/><stop offset='.5' stop-color='#94723a'/><stop offset='1' stop-color='#5e4419'/></linearGradient>
 </defs>`;
 const rnd=(s=>()=>(s=(s*16807)%2147483647)/2147483647)(42);
 function scallop(ax,ay,bx,by,n,depth,side){let d='';const dx=(bx-ax)/n,dy=(by-ay)/n,len=Math.hypot(bx-ax,by-ay),nx=-(by-ay)/len*side,ny=(bx-ax)/len*side;
@@ -557,8 +556,8 @@ function vine(ax,ay,bx,by,inset,side,seed){const len=Math.hypot(bx-ax,by-ay),ux=
   for(let i=1;i<k;i++){const t=i/k,w=Math.sin(t*Math.PI*5+seed)*8,x=ax+(bx-ax)*t-nx*(inset+w),y=ay+(by-ay)*t-ny*(inset+w);
     if(i%3===0)s+=flower(x,y,12+rnd()*5,6+(i%2),rnd()*60);else{const o=i%2?1:-1;s+=leaf(x,y,15+rnd()*6,ang+o*55+rnd()*15)+bud(x-nx*o*4,y-ny*o*4,6+rnd()*2,ang+90*o)}}return s}
 let W=400,H=860,TIP=480;
-const surf=(clip,motif,shade,extra,id)=>`<g><defs><clipPath id='${id}'><path d='${clip}'/></clipPath></defs><g clip-path='url(#${id})'><rect width='${W}' height='${H}' fill='#6b1a27'/><g filter='url(#emb)'><rect width='${W}' height='${H}' fill='none'/>${motif}</g><rect width='${W}' height='${H}' fill='url(#${shade})'/></g><path d='${clip}' fill='none' stroke='#2a050b' stroke-opacity='.55' stroke-width='1.2'/>${extra}</g>`;
-const wrapSVG=inner=>`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${W} ${H}' width='${W}' height='${H}' preserveAspectRatio='none'>${DEFS}${inner}</svg>`;
+const surf=(clip,motif,shade,extra,id)=>`<g><defs><clipPath id='${id}'><path d='${clip}'/></clipPath></defs><g clip-path='url(#${id})'><rect width='${W}' height='${H}' fill='#2e0710'/><g filter='url(#emb)'><rect width='${W}' height='${H}' fill='none'/>${motif}</g><rect width='${W}' height='${H}' fill='url(#gD)'/><rect width='${W}' height='${H}' fill='url(#gV)'/><rect width='${W}' height='${H}' fill='url(#${shade})'/></g><path d='${clip}' fill='none' stroke='#000' stroke-opacity='.6' stroke-width='1.2'/><path d='${clip}' fill='none' stroke='#b4505f' stroke-opacity='.18' stroke-width='.6' transform='translate(-.6 -.6)'/>${extra}</g>`;
+const wrapSVG=inner=>`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${W} ${H}' width='${W}' height='${H}' preserveAspectRatio='none'>${DEFS()}${inner}</svg>`;
 const segs=(len,per)=>Math.max(6,Math.round(len/per));
 let builtFor='';
 async function buildEnvelope(){
@@ -573,14 +572,14 @@ async function buildEnvelope(){
   const rightClip=`M${W} 0 ${scallop(W,0,...rt,segs(lL,26),7,1).trim()} L${W} ${H} Z`;
   const botClip=`M0 ${H} ${scallop(0,H,...bt,segs(bL,26),7,-1).trim()} ${scallop(...bt,W,H,segs(bL,26),7,-1).trim()} Z`;
   const flapClip=`M0 0 L${W} 0 ${scallop(W,0,W/2,TIP,segs(fL,28),8,1).trim()} ${scallop(W/2,TIP,0,0,segs(fL,28),8,1).trim()} Z`;
-  const back=wrapSVG(`<defs><clipPath id='cBk'><rect x='10' y='8' width='${W-20}' height='${H-16}'/></clipPath></defs><rect width='${W}' height='${H}' fill='#4a0f1a'/><g clip-path='url(#cBk)'><rect width='${W}' height='${H}' fill='url(#lG)'/><g filter='url(#embI)'><rect width='${W}' height='${H}' fill='none'/>${liner}</g></g><rect width='${W}' height='${H}' fill='url(#shT)'/>`);
+  const back=wrapSVG(`<defs><clipPath id='cBk'><rect x='10' y='8' width='${W-20}' height='${H-16}'/></clipPath></defs><rect width='${W}' height='${H}' fill='#14020a'/><g clip-path='url(#cBk)'><rect width='${W}' height='${H}' fill='url(#lG)'/><g filter='url(#embI)'><rect width='${W}' height='${H}' fill='none'/>${liner}</g></g><rect width='${W}' height='${H}' fill='url(#shT)'/>`);
   const pocket=wrapSVG(
     `<g filter='url(#dsR)'>${surf(leftClip,v(0,0,...lt,1,1)+flower(52,H*.64,22,8,10)+leaf(70,H*.72,22,40)+flower(40,H*.34,14,6,20)+flower(W*.16,H*.5,11,6,0),'shL',holes(0,0,...lt,segs(lL,14),12,-1),'cL')}</g>`+
     `<g filter='url(#dsL)'>${surf(rightClip,v(W,0,...rt,-1,2)+flower(W-52,H*.64,22,8,30)+leaf(W-70,H*.72,22,140)+flower(W-40,H*.34,14,6,0)+flower(W*.84,H*.5,11,6,20),'shR',holes(W,0,...rt,segs(lL,14),12,1),'cR')}</g>`+
     `<g filter='url(#dsU)'>${surf(botClip,v(0,H,...bt,1,3)+v(...bt,W,H,1,4)+flower(W/2,H*.8,30,10,0)+flower(W/2-62,H*.9,16,6,15)+flower(W/2+62,H*.9,16,6,40)+leaf(W/2-30,H*.71,20,-140)+leaf(W/2+30,H*.71,20,-40)+bud(W/2,H*.64,9,0),'shB',holes(0,H,...bt,segs(bL,14),12,-1)+holes(...bt,W,H,segs(bL,14),12,-1),'cB')}</g>`);
   const flapMotif=vine(W,0,W/2,TIP,28,-1,5)+vine(W/2,TIP,0,0,28,-1,6)+flower(W/2,TIP*.24,30,10,0)+flower(W/2-70,TIP*.13,16,6,25)+flower(W/2+70,TIP*.13,16,6,5)+leaf(W/2-32,TIP*.33,22,150)+leaf(W/2+32,TIP*.33,22,30)+bud(W/2,TIP*.45,10,180);
   const flapO=wrapSVG(`<g filter='url(#dsD)'>${surf(flapClip,flapMotif,'shT',holes(W,0,W/2,TIP,segs(fL,14),12,1)+holes(W/2,TIP,0,0,segs(fL,14),12,1),'cF')}</g>`);
-  const flapI=wrapSVG(`<defs><clipPath id='cFi'><path d='${flapClip}'/></clipPath></defs><g clip-path='url(#cFi)'><rect width='${W}' height='${H}' fill='#5a1420'/><path d='M14 6 L${W-14} 6 L${W/2} ${TIP-18} Z' fill='url(#lG)'/><g filter='url(#embI)'><rect width='${W}' height='${H}' fill='none'/>${liner}</g><rect width='${W}' height='${H}' fill='url(#shT)'/></g>`);
+  const flapI=wrapSVG(`<defs><clipPath id='cFi'><path d='${flapClip}'/></clipPath></defs><g clip-path='url(#cFi)'><rect width='${W}' height='${H}' fill='#1e0409'/><path d='M14 6 L${W-14} 6 L${W/2} ${TIP-18} Z' fill='url(#lG)'/><g filter='url(#embI)'><rect width='${W}' height='${H}' fill='none'/>${liner}</g><rect width='${W}' height='${H}' fill='url(#shT)'/></g>`);
   // render sequentially, yielding between, so the welcome animation keeps running smoothly
   await raster(back,vw,vh,$('#lBack'));await raf();
   await raster(pocket,vw,vh,$('#lPocket'));await raf();
@@ -605,7 +604,7 @@ $('#cardSeal').innerHTML=sealSVG();
 
 /* ---------- guest name (?guest=Name) ---------- */
 let guest=null;try{guest=new URLSearchParams(location.search).get('guest')}catch(e){}
-if(guest){guest=guest.trim().slice(0,60);$('#guestName').textContent=guest;$('#introFor').textContent='Especially for '+guest}
+if(guest){guest=guest.trim().slice(0,60);$('#introFor').textContent='Especially for '+guest}
 
 /* ---------- fullscreen ---------- */
 const fsOK=!!(root.requestFullscreen||root.webkitRequestFullscreen);
@@ -628,7 +627,6 @@ cont.addEventListener('click',async()=>{
   welcome.classList.add('gone');env.classList.add('in');startEnv();
   setTimeout(()=>welcome.remove(),1000);
 });
-$('#skip').addEventListener('click',()=>{opened=true;goFull();reveal()});
 
 /* ---------- envelope motion ---------- */
 const sheen=$('#sheen');
@@ -664,13 +662,16 @@ async function openEnvelope(){
   await wait(380);
   tween(cam,{amp:.35},800);
   await anim(flap,[{transform:'translateZ(6px) rotateX(0deg)'},{transform:'translateZ(6px) rotateX(-105deg)',offset:.55},{transform:'translateZ(-1px) rotateX(-176deg)'}],{duration:1200,easing:'cubic-bezier(.45,.05,.3,1)'});
-  tween(cam,{sc:.6,ty:16,rx:4},1300);
-  await wait(600);
-  await anim(letter,[{transform:'translateZ(2px) translateY(0)'},{transform:'translateZ(2px) translateY(-64%)'}],{duration:1350,easing:'cubic-bezier(.5,0,.2,1)'});
-  await wait(250);
-  tween(cam,{sc:.5,ty:40},1000);
-  anim(letter,[{transform:'translateZ(2px) translateY(-64%)',opacity:1},{transform:'translateZ(420px) translateY(-40%) scale(1.15)',opacity:0}],{duration:1000,easing:'cubic-bezier(.6,0,.3,1)'});
-  await wait(520);reveal();
+  // envelope stays full-size and glides down while the letter rises out of the pocket
+  const vh=innerHeight,lh=letter.offsetHeight,lt=parseFloat(letter.style.top)||vh*.07,drop=.6;
+  const up=Math.round((vh*.42-lh/2)-(lt+vh*drop));
+  tween(cam,{sc:1,ty:drop*100,rx:0,amp:.15},1500);
+  await anim(letter,[{transform:'translateZ(2px) translateY(0)'},{transform:`translateZ(2px) translateY(${up}px)`}],{duration:1500,easing:'cubic-bezier(.55,0,.25,1)'});
+  await wait(350);
+  // envelope falls away, letter comes toward the guest
+  tween(cam,{ty:135},1100);
+  anim(letter,[{transform:`translateZ(2px) translateY(${up}px)`,opacity:1},{transform:`translateZ(380px) translateY(${up-Math.round(vh*.55)}px) scale(1.1)`,opacity:0}],{duration:1100,easing:'cubic-bezier(.6,0,.3,1)'});
+  await wait(600);reveal();
 }
 seal.addEventListener('click',openEnvelope);
 seal.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openEnvelope()}});
